@@ -16,3 +16,5 @@ npm run dev
 ```
 
 Run `npm run build` to type-check and build the production site, and `npm run lint` to run Oxlint.
+
+Vercel uses the root `vercel.json` rewrite to serve the Vite app for client-side paths such as `/projects/sales-dashboard` and `/admin`. This allows direct navigation and page refreshes on those routes.
