@@ -3,16 +3,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Admin from "./admin/Admin";
 import { projects, type DashboardScreenshot, type Project } from "./data/projects";
-import { certificates, type Certificate, type CertificateCategory } from "./data/certificates";
+import { certificates, type Certificate } from "./data/certificates";
 import { contactLinks } from "./data/contact";
-
-const certificateCategories: Array<"All" | CertificateCategory> = [
-  "All",
-  "Data Analysis",
-  "AI",
-  "Business",
-  "Training",
-];
 
 const copyrightYear = new Date().getFullYear();
 
@@ -272,7 +264,6 @@ function CertificateLightbox({ certificate, onClose }: { certificate: Certificat
 
 function App() {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-  const [certificateCategory, setCertificateCategory] = useState<"All" | CertificateCategory>("All");
 
   if (window.location.pathname === "/admin") {
     return <Admin />;
@@ -427,28 +418,11 @@ function App() {
           <h2>Learning & Achievements</h2>
           <p className="section-description">A collection of certificates and milestones.</p>
           {certificates.length > 0 ? (
-            <>
-              <div className="certificate-filters" role="group" aria-label="Filter certificates by category">
-                {certificateCategories.map((category) => (
-                  <button
-                    className={`certificate-filter${certificateCategory === category ? " active" : ""}`}
-                    key={category}
-                    type="button"
-                    aria-pressed={certificateCategory === category}
-                    onClick={() => setCertificateCategory(category)}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-              <div className="portfolio-certificate-grid">
-                {certificates
-                  .filter((certificate) => certificateCategory === "All" || certificate.category === certificateCategory)
-                  .map((certificate) => (
+            <div className="portfolio-certificate-grid">
+              {certificates.map((certificate) => (
                 <CertificateCard key={certificate.id} certificate={certificate} onOpen={setSelectedCertificate} />
-                  ))}
-              </div>
-            </>
+              ))}
+            </div>
           ) : (
             <div className="empty-projects">
               <div className="empty-icon">✦</div>
