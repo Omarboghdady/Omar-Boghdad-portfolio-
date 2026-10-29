@@ -518,6 +518,10 @@ a:focus-visible {
   background: #111827;
 }
 
+.portfolio-project-image--contain {
+  object-fit: contain;
+}
+
 .portfolio-project-content {
   padding: 19px;
 }
@@ -625,6 +629,10 @@ a:focus-visible {
 
 .project-detail-tags {
   margin-top: 22px;
+}
+
+.project-detail-technology-label {
+  margin: 20px 0 -10px;
 }
 
 .project-detail-section {

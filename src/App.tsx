@@ -36,7 +36,11 @@ function ProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.id}`}
       aria-label={`Read the ${project.title} case study`}
     >
-      <img className="portfolio-project-image" src={project.imagePath} alt={`${project.title} dashboard preview`} />
+      <img
+        className={`portfolio-project-image${project.imageObjectFit === "contain" ? " portfolio-project-image--contain" : ""}`}
+        src={project.imagePath}
+        alt={`${project.title} dashboard preview`}
+      />
       <div className="portfolio-project-content">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
@@ -64,10 +68,11 @@ function ProjectDetail({ project }: { project: Project }) {
 
       <main className="project-detail">
         <header className="project-detail-header">
-          <p className="eyebrow">DATA STORY</p>
+          <p className="eyebrow">PROJECT SUMMARY</p>
           <h1>{project.title}</h1>
           <p className="project-detail-subtitle">{project.subtitle}</p>
           <p className="project-detail-overview">{project.description}</p>
+          <p className="eyebrow project-detail-technology-label">TECHNOLOGIES USED</p>
           <div className="portfolio-project-tags project-detail-tags">
             {project.technologies.map((technology) => <span key={technology}>{technology}</span>)}
           </div>

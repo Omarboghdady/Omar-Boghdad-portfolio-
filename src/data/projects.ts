@@ -6,6 +6,7 @@ export type Project = {
   technologies: string[];
   githubUrl: string;
   imagePath: string;
+  imageObjectFit?: "cover" | "contain";
   screenshots: DashboardScreenshot[];
   challengeHeading: string;
   businessProblem: string;
@@ -220,5 +221,55 @@ export const projects: Project[] = [
     impactHeading: "Turn a monitoring snapshot into a repeatable prevention cycle.",
     expectedImpact:
       "Consistent tracking of warnings, corrective-action closure, verification coverage, and permit activity could help safety teams focus reviews, make follow-up more visible, and support earlier preventive decisions. The dashboard does not demonstrate achieved safety improvements.",
+  },
+  {
+    id: "cream-cafe-sales-analysis",
+    title: "Cream Café – Sales Analysis Dashboard",
+    subtitle: "Understand how product mix, store contribution, and trading patterns shape café sales.",
+    description:
+      "A café sales analysis using MySQL for data preparation and analytical queries, with Power BI dashboards to explore revenue, transactions, products, locations, and sales over time.",
+    technologies: ["MySQL", "Power BI"],
+    githubUrl: "https://github.com/Omarboghdady/Cream-Cafe-Sales-Analysis-README.md",
+    imagePath: "/projects/cream-cafe-sales-overview.jpg",
+    imageObjectFit: "contain",
+    screenshots: [
+      {
+        title: "Sales Overview",
+        imagePath: "/projects/cream-cafe-sales-overview.jpg",
+        alt: "Cream Café overview showing revenue, transactions, quantity, average transaction value, store sales share, product category sales, and monthly revenue",
+      },
+      {
+        title: "Product & Time Analysis",
+        imagePath: "/projects/cream-cafe-product-time-analysis.jpg",
+        alt: "Cream Café analysis showing top products, monthly revenue, sales by hour, and revenue by product category",
+      },
+    ],
+    challengeHeading: "How do revenue, product mix, store contribution, and trading time shape café sales?",
+    businessProblem:
+      "The dashboard brings sales measures and product, store, and time-based views together. This gives decision-makers a shared basis for reviewing commercial performance and asking where inventory or operating attention may be useful.",
+    metrics: [
+      { label: "Total revenue", value: "698.8K" },
+      { label: "Transactions", value: "149,116" },
+      { label: "Quantity sold", value: "214,470" },
+      { label: "Average transaction value", value: "4.69" },
+    ],
+    insightHeading: "Coffee leads category revenue, while store sales are closely balanced.",
+    insights: [
+      "The overview reports 698,812 in revenue across 149,116 transactions and 214,470 items, with an average transaction value of 4.69.",
+      "Monthly revenue rises from 76K in February to 166K in June, the strongest month shown in the displayed January–June period.",
+      "Coffee contributes approximately 270K in category revenue, followed by tea at approximately 196K. The product view also ranks Sustainably Grown Organic Lg first at 21.2K.",
+      "The three locations each contribute about one-third of sales: Hell's Kitchen 33.84%, Astoria 33.23%, and Lower Manhattan 32.92%.",
+      "The product-and-time view identifies 10:00 AM as the peak sales hour in the displayed hourly analysis.",
+    ],
+    recommendationHeading: "Turn observed demand patterns into focused operational reviews.",
+    recommendations: [
+      "Prioritize availability for higher-revenue categories and products, while monitoring the broader category mix before making assortment changes.",
+      "Review staffing and preparation capacity around the observed 10:00 AM peak, then compare service and sales patterns to assess where adjustments may help.",
+      "Investigate the increase in monthly revenue from February through June to understand which factors may be repeatable; the dashboard does not identify its cause.",
+      "Compare store-level sales and product performance to identify specific opportunities for local follow-up without assuming one location is underperforming.",
+    ],
+    impactHeading: "Support more informed inventory, staffing, and store-level decisions.",
+    expectedImpact:
+      "Using the dashboard to review product demand, peak trading times, monthly movement, and store contribution could help focus operational questions and resource planning. The analysis shows sales patterns, not measured business improvements.",
   },
 ];
